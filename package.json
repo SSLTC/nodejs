@@ -1,0 +1,25 @@
+{
+  "name": "verou-4-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/becodeorg/verou-4-nodejs-SSLTC.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/becodeorg/verou-4-nodejs-SSLTC/issues"
+  },
+  "homepage": "https://github.com/becodeorg/verou-4-nodejs-SSLTC#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
