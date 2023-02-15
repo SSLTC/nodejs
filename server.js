@@ -1,6 +1,7 @@
 const http = require("http");
 const path = require("path");
 const fs = require("fs");
+const port = "3000";
 
 function send404response(response, err) {
   response.setHeader("Content-Type", "text/html");
@@ -18,17 +19,13 @@ server.on("request", (request, response) => {
     let filePath = `./client${request.url}`;
 
     if (contentType == "text/html") {
-      filePath = `./client${request.url}` + "/index.html";
+      filePath = path.join("./client", request.url, "index.html");
     }
     if (contentType == "text/css") {
       let subFolder = path.basename(request.headers.referer);
-      console.log(subFolder);
-      console.log(path.resolve(subFolder));
-      if (subFolder != "") {
-        subFolder = "/" + subFolder;
+      if (!subFolder.includes(port)) {
+        filePath = path.join("./client", subFolder, request.url);
       }
-      filePath = `./client${subFolder}${request.url}`;
-      console.log(filePath);
     }
 
     const stream = fs.createReadStream(filePath);
@@ -49,6 +46,6 @@ server.on("request", (request, response) => {
   }
 });
 
-server.listen(3000, () => {
-  console.log("Server started on http://127.0.0.1:3000");
+server.listen(port, () => {
+  console.log(`Server started on http://127.0.0.1:${port}`);
 });
