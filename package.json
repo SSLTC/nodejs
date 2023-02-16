@@ -9,7 +9,8 @@
     "start-server": "node server.js",
     "dev-server": "nodemon server.js",
     "start-app": "node app.js",
-    "dev-app": "nodemon app.js"
+    "dev-app": "nodemon app.js",
+    "dev-rest-api": "nodemon rest-api/app.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "nodemon": "^2.0.20"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
     "express": "^4.18.2"
   }
 }

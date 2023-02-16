@@ -1,0 +1,98 @@
+{
+  "Dish0": {
+    "name": "Banana Chocolate French Toast In A Mug",
+    "timeToPrepare": "5 min",
+    "ingredients": [
+      "1 slice bread",
+      "1 egg",
+      "2 tablespoons milk",
+      "1 teaspoon cocoa powder",
+      "banana",
+      "sliced chocolate chip, to taste"
+    ],
+    "steps": [
+      "Slice bread into cubes.",
+      "In a bowl, add egg, milk, and cocoa powder, and mix.",
+      "In a microwave-safe mug, place half of the cubed bread and desired amount of bananas and chocolate chips.",
+      "Place the rest of the bread and fix-ins and pour the egg mixture into the mug.",
+      "Microwave for 1½ minutes or until egg is fully cooked.",
+      "Top it off with whipped cream and chocolate syrup.",
+      "Enjoy!"
+    ]
+  },
+  "Dish1": {
+    "name": "Microwave 3-minute Omelette In A Mug",
+    "timeToPrepare": "3 min",
+    "ingredients": [
+      "2 eggs",
+      "½ bell pepper, diced",
+      "2 slices ham, diced",
+      "¼ cup fresh spinach(10 g), chopped",
+      "salt, to taste",
+      "pepper, to taste"
+    ],
+    "steps": [
+      "Combine all ingredients in a microwaveable mug.",
+      "Cook for 2-3 minutes, making sure the egg doesn’t bubble over. Stir halfway through the cooking process.",
+      "Enjoy!"
+    ]
+  },
+  "Dish2": {
+    "name": "Microwave 4-minute Chicken Quesadilla",
+    "timeToPrepare": "4 min",
+    "ingredients": [
+      "2 medium flour tortillas",
+      "½ cup chicken strip(60 g), or shredded chicken, cooked",
+      "½ bell pepper, diced",
+      "1 tablespoon taco seasoning",
+      "¼ cup shredded cheddar cheese(25 g)"
+    ],
+    "steps": [
+      "Microwave the tortillas on a plate until slightly crispy. They will dry out a bit as they cool.",
+      "Mix the chicken, peppers, and taco seasoning in a bowl until evenly combined, then cook for about 1-2 minutes until the peppers are soft.",
+      "Spread the mixture evenly on one tortilla, cover evenly with the cheese, then top with the other tortilla.",
+      "Cook for another 30 seconds to 1 minute, slice, then serve.",
+      "Enjoy!"
+    ]
+  },
+  "Dish3": {
+    "name": "Microwave 4-minute BBQ Chicken Nachos",
+    "timeToPrepare": "4 min",
+    "ingredients": [
+      "1 cup rotisserie chicken(125 g), shredded",
+      "3 tablespoons BBQ sauce",
+      "2 large handfuls tortilla chips",
+      "¼ cup pico de gallo(60 g)",
+      "1 cup shredded cheddar cheese(100 g)",
+      "¼ cup green onion(35 g), thinly sliced",
+      "guacamole, to serve",
+      "sour cream, to serve"
+    ],
+    "steps": [
+      "Mix the chicken with the barbecue sauce, then spread evenly over a bed of tortilla chips.",
+      "Spread the pico de gallo, cheese, and green onions evenly on top, then microwave for about 1-3 minutes until the cheese is melted and bubbly.",
+      "Dollop with some guacamole and sour cream, then serve.",
+      "Enjoy!"
+    ]
+  },
+  "Dish4": {
+    "name": "Microwave 5-Minute Mac 'N' Cheese",
+    "timeToPrepare": "5 min",
+    "ingredients": [
+      "½ cup elbow macaroni(50 g)",
+      "½ cup water(120 mL)",
+      "3 tablespoons milk",
+      "salt, to taste",
+      "pepper, to taste",
+      "¼ cup shredded cheddar cheese(25 g)",
+      "fresh chive, to garnish, optional"
+    ],
+    "steps": [
+      "Mix the macaroni, water, and salt in a microwaveable mug.",
+      "Microwave for 2-3 minutes, then stir.",
+      "Add the milk, cheese, salt, and pepper, then stir.",
+      "Microwave for another 30 seconds, stir, and garnish with a sprinkle of chives.",
+      "Enjoy!"
+    ]
+  }
+}
