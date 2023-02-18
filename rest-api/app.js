@@ -5,8 +5,11 @@ require("dotenv").config();
 const app = express();
 const port = "3000";
 const dishes = require("./dishes.json");
-const PWD = "12345";
+const PWD = process.env.key;
+
 let userLogin = false;
+
+app.use(express.json());
 
 app.get("/info", (request, response) => {
   response.setHeader("Content-Type", "text/html");
@@ -15,32 +18,32 @@ app.get("/info", (request, response) => {
   response.end();
 });
 
-app.post("/signup", (req, res) => {
-  /* ... */
+app.post("/signup", (request, response) => {
+  let data = request.body;
+  response.send(`The account for user ${data.user} is created.`);
 });
 
 app.post("/signin", (request, response, next) => {
-  console.log(JSON.parse(request.body));
-  if (request.query.key == PWD) {
-    userLogin = true;
-    next();
-  } else {
+  let data = request.query;
+  console.log(data.key + " " + PWD);
+  if (data.key != PWD) {
     userLogin = false;
     response.setHeader("Content-Type", "text/html");
     response.writeHead(200);
     response.write("Wrong login pwd!");
-    response.end();
+    response.send();
+  } else {
+    userLogin = true;
+    response.send("Login successful.");
   }
 });
 
 // All the endpoints below this middleware will require to be authenticated
 app.use((request, response, next) => {
-  if (!userLogin)
-    return res
-      .status(401)
-      .send({ error: "You need to log in to access this endpoint" });
-
-  next();
+  if (!userLogin) {
+    response.status(401);
+    response.send({ error: "You need to log in to access this endpoint" });
+  } else next();
 });
 
 app.get("/", (request, response) => {
@@ -79,12 +82,14 @@ app.get("/dish4", (request, response) => {
   response.send(dishes.Dish4);
 });
 
-app.use((req, res, next) => {
+app.use((request, response, next) => {
   console.log("No matching route found!");
   next();
 });
 
-app.get("*", (req, res) => res.status(404).send({ error: `Not found` }));
+app.get("*", (request, response) =>
+  response.status(404).send({ error: `Not found` })
+);
 
 app.listen(port, () => {
   console.log(`Server started on http://127.0.0.1:${port}`);

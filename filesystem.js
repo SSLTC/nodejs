@@ -28,7 +28,7 @@ console.log(path.join(__dirname, "test", "hello.html"));
 */
 
 const folderExists = (folder, create = false) => {
-  const folderExists = fs.existsSync(path.join(__dirname, `/${folder}`));
+  const folderExists = fs.existsSync(path.join(__dirname, folder));
   if (!folderExists && create) {
     createFolder(folder);
   }
@@ -36,7 +36,7 @@ const folderExists = (folder, create = false) => {
 };
 
 const fileExists = (folder, file) => {
-  return fs.existsSync(path.join(__dirname, `/${folder}`, file));
+  return fs.existsSync(path.join(__dirname, folder, file));
 };
 
 const createFolder = (folder) => {
@@ -46,22 +46,23 @@ const createFolder = (folder) => {
   });
 };
 
-const createFile = ({ folder, file, text }) => {
-  fs.writeFileSync(path.join(__dirname, folder, file), text, (err) => {
+const createFile = ({ folder, file, data = "" }) => {
+  if (!folderExists(folder, true));
+  fs.writeFileSync(path.join(__dirname, folder, file), data, (err) => {
     if (err) throw err;
     console.log(`File ${file} created...`);
   });
 };
 
-const appendFile = ({ folder, file, text }) => {
-  fs.appendFile(path.join(__dirname, `/${folder}`, file), text, (err) => {
+const appendFile = ({ folder, file, data }) => {
+  fs.appendFile(path.join(__dirname, folder, file), data, (err) => {
     if (err) throw err;
     console.log(`File ${file} written to...`);
   });
 };
 
 const readFile = (folder, file) => {
-  fs.readFile(path.join(__dirname, `/${folder}`, file), "utf8", (err, data) => {
+  fs.readFile(path.join(__dirname, folder, file), "utf8", (err, data) => {
     if (err) throw err;
     console.log(data);
   });
@@ -69,8 +70,8 @@ const readFile = (folder, file) => {
 
 const renameFile = ({ folder, oldFile, newFile }) => {
   fs.rename(
-    path.join(__dirname, `/${folder}`, oldFile),
-    path.join(__dirname, `/${folder}`, newFile),
+    path.join(__dirname, folder, oldFile),
+    path.join(__dirname, folder, newFile),
     (err) => {
       if (err) throw err;
       console.log(`File ${oldFile} renamed to ${newFile}`);
@@ -80,12 +81,12 @@ const renameFile = ({ folder, oldFile, newFile }) => {
 
 const createHtmlFile = (folder, title) => {
   const content = `<html lang='en'><head><meta charset='UTF-8' /><meta http-equiv='X-UA-Compatible' content='IE=edge' /><meta name='viewport' content='width=device-width, initial-scale=1.0' /><link rel='stylesheet' href='./style.css' /><title>${title}</title></head><body><h1>${title}</h1></body></html>`;
-  createFile({ folder: folder, file: "index.html", text: content });
+  createFile({ folder: folder, file: "index.html", data: content });
 };
 
 const createCssFile = (folder, color) => {
   const content = `body { background-color: ${color};}`;
-  createFile({ folder: folder, file: "style.css", text: content });
+  createFile({ folder: folder, file: "style.css", data: content });
 };
 
 const removeFolders = (folder = "client") => {
@@ -148,7 +149,7 @@ const createFiles = () => {
     }
     if (value.folder === "client" && !fileExists(value.folder, "info.txt")) {
       const content = `This is being run on a ${os.platform} computer!`;
-      createFile({ folder: value.folder, file: "info.txt", text: content });
+      createFile({ folder: value.folder, file: "info.txt", data: content });
     }
   });
 };
